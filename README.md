@@ -12,3 +12,10 @@ This is a simple AI chatbot project developed using basic programming concepts.
 
 ## Author
 Kamini Kashyap
+# AI Chatbot
+
+This is a simple AI chatbot project.
+
+## Features
+- Responds to user queries
+- Simple chatbot

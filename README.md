@@ -1,2 +1,14 @@
-# ai-chatbot
-A simple AI chatbot developed using basic programming concepts. The chatbot can interact with users, respond to queries, and simulate conversation using predefined logic.
+# AI Chatbot
+
+This is a simple AI chatbot project developed using basic programming concepts.
+
+## Features
+- Responds to user queries
+- Simple conversation system
+- Easy to use
+
+## Technologies Used
+- Python / Java
+
+## Author
+Kamini Kashyap

@@ -1,0 +1,45 @@
+<script>
+const messagesEl = document.getElementById("messages");
+const inputEl = document.getElementById("userInput");
+const sendBtn = document.getElementById("sendBtn");
+
+function appendMessage(text, who="bot"){
+  const el = document.createElement("div");
+  el.className = "msg " + who;
+  el.innerHTML = text;
+  messagesEl.appendChild(el);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+}
+
+async function sendMessage(){
+  const text = inputEl.value.trim();
+  if(!text) return;
+
+  appendMessage(text, "user");
+  inputEl.value = "";
+
+  try {
+    const res = await fetch("http://localhost:3000/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: text }),
+    });
+    const data = await res.json();
+    appendMessage(data.reply, "bot");
+  } catch(err){
+    appendMessage("Error contacting AI", "bot");
+    console.error(err);
+  }
+}
+
+sendBtn.onclick = sendMessage;
+inputEl.addEventListener("keydown", (e) => {
+  if(e.key === "Enter" && !e.shiftKey){
+    e.preventDefault();
+    sendMessage();
+  }
+});
+
+appendMessage("Hello! I am your AI chatbot 🤖", "bot");
+</script>
+
